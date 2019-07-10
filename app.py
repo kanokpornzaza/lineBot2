@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     a=os.environ['Authorization']
-    return "นายอาคม สุวรรณประเสริฐ เลขที่ 0 ชั้น ม.4/3"
+    return "นางสาวกนกพร ลาวเวียง  เลขที่ 11 ชั้น ม.4/6"
 
 @app.route("/webhook", methods=['POST'])
 def webhook():
@@ -22,14 +22,7 @@ def callback():
     decoded = json.loads(json_line)
     user = decoded["events"][0]['replyToken']
     userText = decoded["events"][0]['message']['text']
-    #sendText(user,userText)
-    if (userText == 'สวัสดี') :
-        sendText(user,'เออ! ค่ะ')
-    elif (userText == 'ไปล่ะ') :
-        sendText(user,'บาย')
-    else :
-        sendText(user,'ไม่เข้าใจ')
-
+    sendText(user,userText)
     return '',200
 
 def sendText(user, text):
