@@ -21,7 +21,7 @@ def callback():
     json_line = json.dumps(json_line)
     decoded = json.loads(json_line)
     #user user = decoded['originalDetectIntentRequest']['payload']['data']['replyToken']
-    user= decoded['originalDetectIntent']['data']['payload']['replyToken']
+    user= decoded['originalDetectIntentRequest']['payload']['data']['replyToken']
     #userText = decoded['queryResult']['intent']['displayName']
     userText = decoded['queryResult']['intent']['displayName']
     #sendText(user,userText)
